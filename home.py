@@ -6,9 +6,11 @@ def add_todo():
     st.session_state["add"] = ""
     todos.append(new_todo)
     functions.write_todo(todos)
+
 todos = functions.get_todos()
-st.title("My Todo App")
-st.subheader("List Todo:")
+st.set_page_config(layout="wide")
+st.title("Your Todo App")
+st.write("<b>List Todo:<b> <i>Click the box to complete todo !<i>",unsafe_allow_html=True)
 for index,todo in enumerate(todos):
     check = st.checkbox(todo,key=todo)
     print(st.session_state)
